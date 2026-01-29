@@ -1,5 +1,14 @@
 {
   "compilerOptions": {
+    "strict": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "skipLibCheck": true
+  }
+}
+
+{
+  "compilerOptions": {
     "target": "ES2022",
     "useDefineForClassFields": true,
     "module": "ESNext",
