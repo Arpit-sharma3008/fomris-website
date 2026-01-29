@@ -1,4 +1,4 @@
-import { cardVariants } from "../animations"
+import type { Variants } from "framer-motion"
 import { motion } from 'framer-motion'
 import './WhatWeBuild.css'
 
@@ -78,6 +78,22 @@ const WhatWeBuild = () => {
         }
     ]
 
+
+    const cardVariants: Variants = {
+        hidden: {
+            opacity: 0,
+            scale: 0.9,
+        },
+        visible: {
+            opacity: 1,
+            scale: 1,
+            transition: {
+                duration: 0.6,
+                ease: [0.16, 1, 0.3, 1], // valid cubic-bezier
+            },
+        },
+    }
+
     return (
         <section className="section what-we-build-section">
             <div className="container">
@@ -101,7 +117,6 @@ const WhatWeBuild = () => {
                         <motion.div
                             key={index}
                             className="glass-card principle-card"
-                            custom={index}
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, margin: "-100px" }}
