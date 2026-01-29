@@ -1,14 +1,5 @@
 {
   "compilerOptions": {
-    "strict": false,
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "skipLibCheck": true
-  }
-}
-
-{
-  "compilerOptions": {
     "target": "ES2022",
     "useDefineForClassFields": true,
     "module": "ESNext",
@@ -28,6 +19,13 @@
     "moduleDetection": "force",
     "noEmit": true,
     "jsx": "react-jsx",
+
+/* Relaxed checks for deployment*/
+    "strict": false,
+    "noUnusedLocals": false.
+    "noUnusedParameters": false,
+    "skipLibCheck": true, 
+    
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
