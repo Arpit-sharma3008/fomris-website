@@ -3,7 +3,7 @@ import { useState } from 'react'
 import './StealthProject.css'
 
 const StealthProject = () => {
-    const [isExpanded, setIsExpanded] = useState(false)
+    const [_isExpanded, setIsExpanded] = useState(false)
 
     const handleExpand = () => {
         setIsExpanded(true)

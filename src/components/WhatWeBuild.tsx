@@ -1,20 +1,8 @@
+import { cardVariants } from "../animations"
 import { motion } from 'framer-motion'
 import './WhatWeBuild.css'
 
 const WhatWeBuild = () => {
-    const cardVariants = {
-        hidden: { opacity: 0, scale: 0.9 },
-        visible: (custom: number) => ({
-            opacity: 1,
-            scale: 1,
-            transition: {
-                delay: custom * 0.15,
-                duration: 0.6,
-                ease: "easeOut"
-            }
-        })
-    }
-
     const principles = [
         {
             title: "Body Positivity",

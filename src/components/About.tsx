@@ -1,15 +1,8 @@
+import { fadeInUp } from "../animations"
 import { motion } from 'framer-motion'
 import './About.css'
 
 const About = () => {
-    const fadeInVariants = {
-        hidden: { opacity: 0, y: 40 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: { duration: 1.0, ease: "easeOut" }
-        }
-    }
 
     return (
         <section id="about" className="section about-section">
@@ -19,7 +12,7 @@ const About = () => {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: "-100px" }}
-                    variants={fadeInVariants}
+                    variants={fadeInUp}
                 >
                     <h2>About Formis Group</h2>
                 </motion.div>
@@ -29,7 +22,7 @@ const About = () => {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: "-100px" }}
-                    variants={fadeInVariants}
+                    variants={fadeInUp}
                 >
                     <p className="about-text">
                         Formis Group is a next-generation consumer brand house built on a singular belief:{' '}

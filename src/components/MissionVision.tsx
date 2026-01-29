@@ -1,18 +1,18 @@
+import type { Variants } from "framer-motion"
 import { motion } from 'framer-motion'
 import './MissionVision.css'
 
 const MissionVision = () => {
-    const cardVariants = {
+    const cardVariants: Variants = {
         hidden: { opacity: 0, y: 40 },
-        visible: (custom: number) => ({
+        visible: {
             opacity: 1,
             y: 0,
             transition: {
-                delay: custom * 0.2,
                 duration: 0.9,
                 ease: [0.22, 1, 0.36, 1]
             }
-        })
+        }
     }
 
     return (
@@ -22,7 +22,6 @@ const MissionVision = () => {
                     {/* Mission Card */}
                     <motion.div
                         className="glass-card mission-card"
-                        custom={0}
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, margin: "-100px" }}

@@ -1,3 +1,4 @@
+import type { Variants } from "framer-motion"
 import { motion } from 'framer-motion'
 import './Team.css'
 
@@ -27,17 +28,16 @@ const Team = () => {
         }
     ]
 
-    const cardVariants = {
+    const cardVariants: Variants = {
         hidden: { opacity: 0, scale: 0.9 },
-        visible: (custom: number) => ({
+        visible: {
             opacity: 1,
             scale: 1,
             transition: {
-                delay: custom * 0.2,
                 duration: 0.7,
-                ease: "easeOut"
+                ease: [0.16, 1, 0.3, 1] // easeOut cubic-bezier
             }
-        })
+        }
     }
 
     return (

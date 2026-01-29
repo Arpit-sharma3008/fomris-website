@@ -1,3 +1,4 @@
+import type { Variants } from "framer-motion"
 import { motion } from 'framer-motion'
 import './Hero.css'
 
@@ -7,17 +8,16 @@ const Hero = () => {
         stealthSection?.scrollIntoView({ behavior: 'smooth' })
     }
 
-    const fadeInUp = {
+    const fadeInUp: Variants = {
         hidden: { opacity: 0, y: 30 },
-        visible: (custom: number) => ({
+        visible: {
             opacity: 1,
             y: 0,
             transition: {
-                delay: custom * 0.2,
                 duration: 0.8,
-                ease: "easeOut"
+                ease: [0.16, 1, 0.3, 1]
             }
-        })
+        }
     }
 
     return (
@@ -26,7 +26,6 @@ const Hero = () => {
                 {/* 2. Main Headline */}
                 <motion.h1
                     className="hero-headline"
-                    custom={1}
                     initial="hidden"
                     animate="visible"
                     variants={fadeInUp}
@@ -38,7 +37,6 @@ const Hero = () => {
                 {/* 3. Subtext */}
                 <motion.p
                     className="hero-subtext"
-                    custom={2}
                     initial="hidden"
                     animate="visible"
                     variants={fadeInUp}
@@ -50,7 +48,6 @@ const Hero = () => {
                 {/* 4. CTA Button */}
                 <motion.div
                     className="hero-cta-wrapper"
-                    custom={3}
                     initial="hidden"
                     animate="visible"
                     variants={fadeInUp}
