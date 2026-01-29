@@ -1,0 +1,29 @@
+.steel-logo-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+.steel-logo-svg {
+    width: 80%;
+    max-width: 600px;
+    height: auto;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
+}
+
+/* Chrome Gradient Definition */
+/* We define this in the SVG defs usually, but just in case we need CSS backup */
+.steel-text {
+    font-family: var(--font-display);
+    font-weight: 900;
+    fill: url(#chromeGradient);
+    stroke: rgba(255, 255, 255, 0.5);
+    stroke-width: 1px;
+}

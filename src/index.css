@@ -1,0 +1,613 @@
+/* ==========================================
+   FORMIS GROUP - DESIGN SYSTEM (LIGHT EDITORIAL)
+   Clean, Minimal, Institutional, Airy
+   ========================================== */
+
+/* ========== CSS VARIABLES ========== */
+:root {
+  /* Color Palette - Light/Clean Theme */
+  --color-bg-main: #EEF2F6;
+  --color-text-primary: #0F172A;
+  --color-text-secondary: #475569;
+  --color-text-light: #94A3B8;
+  --color-white: #FFFFFF;
+  --color-accent: #0F172A;
+
+  /* Industrial Accents */
+  --color-steel: #64748B;
+  --color-steel-light: #F1F5F9;
+
+  /* Green Theme (Reference Match) */
+  --color-green-primary: #10B981;
+  --color-green-light: #ECFDF5;
+  --color-green-dark: #047857;
+
+  /* Typography */
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 4rem;
+  --spacing-2xl: 6rem;
+  --spacing-3xl: 8rem;
+
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-pill: 50px;
+
+  /* Shadows */
+  --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 10px 40px rgba(15, 23, 42, 0.05);
+
+  /* Transitions */
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Animations */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Fog Animation */
+/* Keyframes moved to specific layer definitions for organic variety */
+
+.fog-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.fog-layer {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: url('/bg-mist.png');
+  background-size: cover;
+  background-repeat: repeat;
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+  /* Fix: Multiply works best on light backgrounds to show texture */
+}
+
+/* =========================================
+   LAYER 1: LOCKED FOG ATMOSPHERE
+   ================================********* */
+.fog-layer-1 {
+  /* Restored: Soft Cyan Drift Texture */
+  animation: fog-flow-1 120s ease-in-out infinite;
+  background-color: rgba(6, 182, 212, 0.1);
+  top: -20%;
+  left: -20%;
+}
+
+.fog-layer-2 {
+  /* Restored: Soft Violet Drift Texture */
+  animation: fog-flow-2 90s ease-in-out infinite reverse;
+  opacity: 0.2;
+  background-position: center bottom;
+  background-color: rgba(139, 92, 246, 0.1);
+  top: 10%;
+  left: 10%;
+}
+
+/* =========================================
+   LAYER 2: COLOR BLISS (Signals)
+   ================================********* */
+.bliss-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  /* Above fog (0), below content */
+  pointer-events: none;
+  overflow: hidden;
+  mix-blend-mode: multiply;
+  /* Blends colors into the mist naturally */
+}
+
+.bliss-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  /* Heavy diffusion */
+  opacity: 0.4;
+  /* Subtle presence */
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/* Signal 1: Muted Blue (Clarity) */
+.bliss-blue {
+  width: 60vw;
+  height: 60vw;
+  background: #38bdf8;
+  top: -20%;
+  left: -10%;
+  opacity: 0.15;
+  animation: bliss-drift-1 180s infinite;
+}
+
+/* Signal 2: Muted Amber (Warmth) */
+.bliss-amber {
+  width: 50vw;
+  height: 50vw;
+  background: #fbbf24;
+  top: 40%;
+  right: -10%;
+  opacity: 0.12;
+  animation: bliss-drift-2 220s infinite;
+}
+
+/* Signal 3: Desaturated Green (Growth) */
+.bliss-green {
+  width: 45vw;
+  height: 45vw;
+  background: #34d399;
+  bottom: -10%;
+  left: 20%;
+  opacity: 0.1;
+  animation: bliss-drift-3 200s infinite;
+}
+
+/* Signal 4: Gentle Violet (Future) */
+.bliss-violet {
+  width: 55vw;
+  height: 55vw;
+  background: #a78bfa;
+  top: 10%;
+  left: 40%;
+  opacity: 0.12;
+  animation: bliss-drift-4 240s infinite;
+}
+
+/* Independent Bliss Motions (De-coupled from Fog) */
+@keyframes bliss-drift-1 {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.15;
+  }
+
+  50% {
+    transform: translate(10%, 15%) scale(1.1);
+    opacity: 0.2;
+  }
+
+  100% {
+    transform: translate(-5%, 5%) scale(0.95);
+    opacity: 0.15;
+  }
+}
+
+@keyframes bliss-drift-2 {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0.12;
+  }
+
+  50% {
+    transform: translate(-10%, -5%) rotate(20deg);
+    opacity: 0.18;
+  }
+
+  100% {
+    transform: translate(5%, 10%) rotate(0deg);
+    opacity: 0.12;
+  }
+}
+
+@keyframes bliss-drift-3 {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(15%, -10%) scale(1.2);
+  }
+
+  100% {
+    transform: translate(-5%, 5%) scale(1);
+  }
+}
+
+@keyframes bliss-drift-4 {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  60% {
+    transform: translate(-8%, 12%) scale(1.15);
+  }
+
+  100% {
+    transform: translate(4%, -4%) scale(1);
+  }
+}
+
+/* Restoring Base Fog Keyframes just in case */
+@keyframes fog-flow-1 {
+  0% {
+    transform: translateX(-10%) translateY(0);
+  }
+
+  50% {
+    transform: translateX(10%) translateY(-5%);
+  }
+
+  100% {
+    transform: translateX(-10%) translateY(0);
+  }
+}
+
+@keyframes fog-flow-2 {
+  0% {
+    transform: translateX(10%) translateY(0);
+  }
+
+  50% {
+    transform: translateX(-10%) translateY(5%);
+  }
+
+  100% {
+    transform: translateX(10%) translateY(0);
+  }
+}
+
+/* Hidden old color layers to prevent conflict */
+.fog-layer-3,
+.fog-layer-4 {
+  display: none;
+}
+
+/* Color Pulse Animation */
+@keyframes color-shift {
+  0% {
+    filter: hue-rotate(0deg) saturate(150%);
+  }
+
+  50% {
+    filter: hue-rotate(30deg) saturate(180%);
+  }
+
+  100% {
+    filter: hue-rotate(0deg) saturate(150%);
+  }
+}
+
+.fog-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Subtle global gradient pulse */
+  background: radial-gradient(circle at 50% 50%, rgba(236, 72, 153, 0.05), rgba(59, 130, 246, 0.05));
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  animation: color-shift 20s infinite alternate;
+}
+
+/* ========== RESET & BASE ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-bg-main);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--color-text-primary);
+  letter-spacing: -0.03em;
+}
+
+h1 {
+  font-size: clamp(3.5rem, 7vw, 5rem);
+  letter-spacing: -0.04em;
+}
+
+h2 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  letter-spacing: -0.03em;
+}
+
+p {
+  color: var(--color-text-secondary);
+  font-size: 1.125rem;
+  line-height: 1.5;
+  /* Tighter line height for modern feel */
+  letter-spacing: -0.01em;
+  /* Slight negative tracking for clarity */
+}
+
+/* Typography Utilities */
+.text-huge {
+  font-size: clamp(4rem, 8vw, 8rem);
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+}
+
+.text-outline {
+  -webkit-text-stroke: 1px var(--color-text-primary);
+  color: transparent;
+}
+
+/* Glass/Clean Cards */
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-subtle);
+  transition: var(--transition);
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow-card);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 1rem;
+  transition: var(--transition);
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--color-white);
+  color: var(--color-text-primary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--color-text-primary);
+  color: var(--color-text-primary);
+}
+
+.btn-outline:hover {
+  background: var(--color-text-primary);
+  color: var(--color-white);
+}
+
+/* Marquee Section */
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+  padding: var(--spacing-xl) 0;
+  display: flex;
+  background: var(--color-white);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+  z-index: 10;
+}
+
+.marquee-content {
+  display: flex;
+  animation: marquee 30s linear infinite;
+  padding-right: var(--spacing-xl);
+}
+
+.marquee-item {
+  font-family: var(--font-display);
+  font-size: 5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-right: var(--spacing-3xl);
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-text-primary);
+  opacity: 0.2;
+}
+
+/* Blueprint Section */
+.blueprint-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: var(--spacing-lg);
+}
+
+.blueprint-item {
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  padding-right: var(--spacing-lg);
+}
+
+.blueprint-item:last-child {
+  border-right: none;
+}
+
+.blueprint-label {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-steel);
+  margin-bottom: var(--spacing-sm);
+  display: block;
+}
+
+.blueprint-header {
+  font-size: 2rem;
+  margin-bottom: var(--spacing-md);
+  font-weight: 700;
+}
+
+/* Liquid Banner Container */
+.industrial-banner-container {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  margin: var(--spacing-xl) 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  background: #000;
+}
+
+/* The Image Itself */
+.industrial-banner {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: ken-burns 20s ease-in-out infinite alternate;
+}
+
+/* Shimmer Overlay */
+.liquid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.1) 40%,
+      rgba(255, 255, 255, 0.2) 50%,
+      rgba(255, 255, 255, 0.1) 60%,
+      rgba(255, 255, 255, 0) 100%);
+  z-index: 2;
+  animation: shimmer 5s infinite;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+/* Animations */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes ken-burns {
+  0% {
+    transform: scale(1.0) translate(0, 0);
+  }
+
+  50% {
+    transform: scale(1.1) translate(-1%, -1%);
+  }
+
+  100% {
+    transform: scale(1.0) translate(0, 0);
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+.section {
+  padding: var(--spacing-2xl) 0;
+  position: relative;
+}
+
+/* Background Mist */
+.bg-mist {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+  background-image: url('/bg-mist.png');
+  background-size: cover;
+  background-position: center;
+  mix-blend-mode: multiply;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  .section {
+    padding: var(--spacing-xl) 0;
+  }
+
+  .blueprint-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .blueprint-item {
+    border-right: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .industrial-banner {
+    height: 250px;
+  }
+
+  .marquee-item {
+    font-size: 3rem;
+  }
+}

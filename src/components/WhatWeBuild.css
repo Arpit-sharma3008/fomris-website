@@ -1,0 +1,99 @@
+.what-we-build-section {
+    position: relative;
+}
+
+.principles-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* Enforce 2x2 grid */
+    gap: var(--spacing-lg);
+}
+
+.principle-card {
+    text-align: center;
+    padding: var(--spacing-xl);
+    min-height: 320px;
+    display: flex;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    /* Glassmorphism Update */
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-subtle);
+    transition: all var(--transition);
+}
+
+.principle-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: var(--shadow-card);
+    border-color: rgba(255, 255, 255, 0.8);
+}
+
+.principle-icon {
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    /* Cool Cyan Tint to match theme */
+    background: rgba(6, 182, 212, 0.1);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-normal);
+}
+
+.principle-card:hover .principle-icon {
+    background: rgba(6, 182, 212, 0.2);
+    transform: scale(1.05);
+}
+
+.principle-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text-primary);
+}
+
+.principle-description {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    flex-grow: 1;
+}
+
+@media (max-width: 768px) {
+    .principles-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .principle-card {
+        min-height: auto;
+        padding: var(--spacing-lg);
+    }
+
+    .principle-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .principle-icon svg {
+        width: 32px;
+        height: 32px;
+    }
+
+    .principle-title {
+        font-size: 1.25rem;
+    }
+
+    .principle-description {
+        font-size: 0.95rem;
+    }
+}

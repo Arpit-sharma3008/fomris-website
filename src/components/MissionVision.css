@@ -1,0 +1,63 @@
+.mission-vision-section {
+    background: linear-gradient(180deg, #1a1f35 0%, var(--color-midnight) 100%);
+}
+
+.mission-vision-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card-icon {
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    background: rgba(99, 102, 241, 0.1);
+    border-radius: var(--radius-md);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+    color: var(--color-cloud-white);
+}
+
+.card-description {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--color-mist);
+    text-align: center;
+}
+
+/* Reduce card padding */
+.mission-card,
+.vision-card {
+    padding: var(--spacing-lg);
+}
+
+@media (max-width: 768px) {
+    .card-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .card-icon svg {
+        width: 36px;
+        height: 36px;
+    }
+
+    .card-title {
+        font-size: 1.75rem;
+    }
+
+    .card-description {
+        font-size: 1rem;
+        text-align: left;
+    }
+}
