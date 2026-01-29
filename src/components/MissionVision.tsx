@@ -49,7 +49,6 @@ const MissionVision = () => {
                     {/* Vision Card */}
                     <motion.div
                         className="glass-card vision-card"
-                        custom={1}
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, margin: "-100px" }}
