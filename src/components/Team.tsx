@@ -14,14 +14,14 @@ const Team = () => {
     const teamMembers: TeamMember[] = [
         {
             name: "Arpit Sharma",
-            role: "Founder & Strategic Vision",
+            role: "Co-Founder & Strategic Vision",
             description: "Driving brand strategy, culture-first positioning, and long-term growth.",
             gradient: "linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%)",
             image: "/team/founder.jpg?v=1"
         },
         {
             name: "Harmeet Singh",
-            role: "Product & Execution",
+            role: "Co-Founder & Product & Execution",
             description: "Overseeing product development, supply chain, and operational excellence.",
             gradient: "linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%)",
             image: "/team/operations.jpg?v=2",
@@ -61,7 +61,6 @@ const Team = () => {
                         <motion.div
                             key={index}
                             className="glass-card team-card"
-                            custom={index}
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, margin: "-100px" }}
